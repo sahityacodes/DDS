@@ -12,7 +12,7 @@ class Customer:
 
 
 def generateOrderTime(lambd):
-    return random.expovariate(lambd) * 60
+    return random.expovariate(lambd)
 
 
 def Simulation(lambd=False, mu=False, simulation_time=False):
@@ -35,9 +35,9 @@ def Simulation(lambd=False, mu=False, simulation_time=False):
         service_time = generateOrderTime(mu)
         Customers.append(Customer(arrival_time, service_start_time, service_time))
         print("Customer Number", len(Customers))
-        print("Customer Wait Time {:.2f} minutes".format(service_start_time-arrival_time))
-        print("Customer Arrived At : {} o'clock".format(datetime.timedelta(minutes = service_start_time)))
-        print("Service Time : {:.2f} minutes ".format(service_time))
+        print("Customer Wait Time {} ".format(service_start_time-arrival_time))
+        print("Customer Arrived At : {}".format(service_start_time))
+        print("Service Time : {} ".format(service_time))
         print("")
         t = arrival_time
     return Customers
